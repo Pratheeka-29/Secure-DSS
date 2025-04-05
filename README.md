@@ -2,8 +2,6 @@
 ```markdown
 # 🔐 Secure DSS Application in Python (Streamlit)
 
-A **Secure Digital Signature System (DSS)** developed as a mini project using **Python**, **Streamlit**, and **MySQL**, implementing **DSA key-based message signing and verification** to ensure **data integrity**, **authenticity**, and **non-repudiation**.
-
 ---
 
 ## 📌 Pre-requisites
