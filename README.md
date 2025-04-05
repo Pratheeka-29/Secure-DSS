@@ -1,20 +1,23 @@
- **Secure DSS Application in Python (Streamlit)**.
+
+```markdown
+# 🔐 Secure DSS Application in Python (Streamlit)
+
+A **Secure Digital Signature System (DSS)** developed as a mini project using **Python**, **Streamlit**, and **MySQL**, implementing **DSA key-based message signing and verification** to ensure **data integrity**, **authenticity**, and **non-repudiation**.
 
 ---
 
-# 🔐 Secure Digital Signature System (DSS) – Mini Project
+## 📌 Pre-requisites
 
-## Pre-requisites:
-1. **Python 3.10+**
-2. **Streamlit**
-3. **MySQL Server** (running locally)
-4. **VS Code** or any code editor
+- Python 3.10+
+- Streamlit
+- MySQL Server (running locally)
+- Code editor (e.g., VS Code)
 
 ---
 
-## Step 1: Clone or Download the Project
+## 📥 Step 1: Clone or Download the Project
 
-You can either clone this GitHub repo or download the ZIP and extract it:
+You can either clone this GitHub repository or download the ZIP and extract it:
 
 ```bash
 git clone https://github.com/Pratheeka-29/Secure-DSS.git
@@ -23,9 +26,9 @@ cd Secure-DSS
 
 ---
 
-## Step 2: Install Required Python Libraries
+## ⚙️ Step 2: Install Required Python Libraries
 
-Make sure to install all required packages:
+Install all required Python libraries using:
 
 ```bash
 pip install streamlit mysql-connector-python cryptography bcrypt
@@ -51,9 +54,9 @@ Secure-DSS/
 
 ---
 
-## Step 3: Set Up MySQL Database
+## 🛠️ Step 3: Set Up MySQL Database
 
-Make sure your MySQL server is running. Then run the following commands in a MySQL client:
+Ensure your MySQL server is running. Use a MySQL client (e.g., MySQL Workbench or CLI) and run:
 
 ```sql
 CREATE DATABASE digital_signature;
@@ -70,7 +73,9 @@ CREATE TABLE users (
 );
 ```
 
-You may also need to update `db_config.py` with your MySQL credentials:
+### 🔧 Configure MySQL Credentials
+
+Update the `db_config.py` file with your MySQL credentials:
 
 ```python
 config = {
@@ -83,91 +88,97 @@ config = {
 
 ---
 
-## Step 4: Run the App
+## ▶️ Step 4: Run the App
 
-Start the Streamlit app using:
+Start the Streamlit application:
 
 ```bash
 streamlit run app.py
 ```
 
-It will open in your browser at `http://localhost:8501`
+Open your browser and navigate to `http://localhost:8501`
 
 ---
 
 ## 🧠 How It Works
 
-### 1. **User Registration**
-- Registers user credentials
-- Generates DSA key pair (private/public)
-- Stores them securely
+### 1. 📝 User Registration
+- User provides details (username, email, password, security question/answer).
+- DSA key pair (private & public) is generated.
+- Keys are securely stored.
 
-### 2. **Login System**
-- Verifies bcrypt-hashed password
-- Loads keys for signing/verifying messages
+### 2. 🔐 Login System
+- Passwords are verified using `bcrypt`.
+- User credentials and keys are loaded securely.
 
-### 3. **Message Signing**
-- Input any message → hashes it → signs with private key
-- Signature is displayed for sharing/verification
+### 3. ✍️ Message Signing
+- User inputs a message.
+- Message is hashed and digitally signed using private key.
+- A unique signature is generated.
 
-### 4. **Message Verification**
-- Input message + signature + username → verifies using public key
-- Confirms if signature is valid or tampered
-
----
-
-## Expected Results
-
-- ✅ Successfully signing a message generates a valid signature.
-- ❌ Changing the message or signature will cause the verification to **fail**.
-- ⚠️ If username doesn’t exist, the system shows an error.
+### 4. ✅ Signature Verification
+- User provides the message, signature, and username.
+- System verifies authenticity using stored public key.
+- Detects tampering or mismatches.
 
 ---
 
-## 🔒 Security Features
+## ✅ Expected Results
 
-- Bcrypt password hashing
-- Public/private key pairs stored securely
-- Digital signatures are message-specific
-- Verification checks ensure message integrity
-
----
-
-🔒 Features
-User-friendly Streamlit interface
-
-Secure password hashing using bcrypt
-
-DSA key generation and message signing
-
-Message verification using public keys
-
-Signature tampering detection
-
-Error handling and alerts
-
-alerts
-
-🧪 Test Cases
-Case	Expected Output
-Valid signature & correct user	✅ Signature is valid
-Tampered message or signature	❌ Signature is NOT valid
-Wrong username	❌ Error loading public key
-Missing inputs	⚠️ Prompt to fill all fields
-
-📌 Notes
-All signed messages are stored locally.
-
-Keys are unique per user and regenerated on registration.
-
-Streamlit makes the app interactive and easy to use.
-
-
-## Conclusion
-
-Successfully developed a **Secure Digital Signature System** using Python and Streamlit with cryptographic features. This system enables signing and verifying messages using public-key cryptography ensuring **data integrity**, **authenticity**, and **non-repudiation**.
+- ✅ Signing a message successfully generates a valid signature.
+- ❌ Modifying the message or signature will make the verification fail.
+- ⚠️ Incorrect username triggers a public key error.
 
 ---
 
+## 🔐 Security Features
 
+- Secure login using **bcrypt password hashing**
+- **DSA key pairs** for each user
+- Signature verification ensures **message integrity**
+- Digital signatures are **message-specific**
+- Tampering or key mismatches are detected automatically
+
+---
+
+## 🌟 Key Features
+
+- ✅ User-friendly Streamlit web interface
+- 🔐 Secure user registration and login
+- 🔑 Key-based digital message signing
+- 🧾 Message integrity verification using public keys
+- 🚨 Tampering and error detection
+- 🔁 Instant feedback and alerts for users
+
+---
+
+## 🧪 Test Cases
+
+| Test Case                          | Expected Output              |
+|-----------------------------------|------------------------------|
+| Valid signature & correct user    | ✅ Signature is valid         |
+| Tampered message or signature     | ❌ Signature is NOT valid     |
+| Wrong username                    | ❌ Error loading public key   |
+| Missing inputs                    | ⚠️ Prompt to fill all fields  |
+
+---
+
+## 🗒️ Notes
+
+- All signed messages are saved locally in the `signatures/` folder.
+- Each user gets a unique key pair upon registration.
+- Streamlit provides a real-time, interactive experience.
+- Ensure MySQL server is running before using the app.
+
+---
+
+## 🏁 Conclusion
+
+Successfully developed a **Secure Digital Signature System** using Python and Streamlit with cryptographic DSA features. This system enables signing and verifying messages using public-key cryptography, ensuring:
+
+- 🔒 Data Integrity  
+- ✅ Authenticity  
+- 🚫 Non-repudiation  
+
+---
 
