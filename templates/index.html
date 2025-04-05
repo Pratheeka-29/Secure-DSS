@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Signature Scheme (DSS)</title>
+</head>
+<body>
+    <h2>Digital Signature Scheme (DSS)</h2>
+
+    <!-- Generate Keys Form -->
+    <form action="/generate_keys" method="post">
+        <h3>Generate Keys</h3>
+        <input type="text" name="user_name" placeholder="Enter User Name" required>
+        <button type="submit">Generate Keys</button>
+    </form>
+
+    <!-- Sign Message Form -->
+    <form action="/sign_message" method="post">
+        <h3>Sign Message</h3>
+        <input type="text" name="user_name" placeholder="Enter User Name" required>
+        <textarea name="message" placeholder="Enter Message" required></textarea>
+        <button type="submit">Sign Message</button>
+    </form>
+
+    <!-- Verify Message Form -->
+    <form action="/verify_message" method="post">
+        <h3>Verify Message</h3>
+        <input type="text" name="user_name" placeholder="Enter User Name" required>
+        <textarea name="message" placeholder="Enter Message" required></textarea>
+        <button type="submit">Verify Message</button>
+    </form>
+</body>
+</html>
